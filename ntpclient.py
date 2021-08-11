@@ -1,8 +1,5 @@
-import ntplib
 import socket
 
-
-client = ntplib.NTPClient()
 host_address = input('Host address input:')
 port_address = input('Port address input:')
 serverAddress = (host_address, int(port_address))
@@ -15,6 +12,7 @@ try:
         clientMessage = input("Enter your message:")
         if clientMessage == "exit":
             break
+
         bytesToSend = str.encode(clientMessage)
 
         UDPServerSocket.sendto(bytesToSend, serverAddress)
