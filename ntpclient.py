@@ -15,7 +15,7 @@ try:
         clientMessage = input("Enter your message:")
         if clientMessage == "exit":
             break
-        bytesToSend = str.encode(clientMessage+ "+1")
+        bytesToSend = str.encode(clientMessage)
 
         UDPServerSocket.sendto(bytesToSend, serverAddress)
 
