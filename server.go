@@ -31,12 +31,12 @@ func handleClient(conn *net.UDPConn) {
 	message := string(buffer[:n])
 	if message == "time" {
 		daytime := time.Now().String()
-		responseTime := time.Now()
-		fmt.Println("Response Time:" + responseTime.Sub(requestTime).String())
 		conn.WriteToUDP([]byte(daytime), addr)
 	} else {
 		conn.WriteToUDP([]byte("Failed, Try again."), addr)
 	}
+	responseTime := time.Now()
+	fmt.Println("Response Time:" + responseTime.Sub(requestTime).String())
 }
 
 func checkError(err error) {
