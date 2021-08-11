@@ -27,15 +27,15 @@ func handleClient(conn *net.UDPConn) {
 	buffer := make([]byte, 1024)
 	n, addr, err := conn.ReadFromUDP(buffer)
 	checkError(err)
-
-	fmt.Println("Client: ", addr)
+	requestTime := time.Now()
 	message := string(buffer[:n])
-	fmt.Println("Received from Client:", message)
-
 	if message == "time" {
 		daytime := time.Now().String()
+		responseTime := time.Now()
+		fmt.Println("Response Time:" + responseTime.Sub(requestTime).String())
 		conn.WriteToUDP([]byte(daytime), addr)
-		fmt.Println("Server answer is " + daytime)
+	} else {
+		conn.WriteToUDP([]byte("Failed, Try again."), addr)
 	}
 }
 
