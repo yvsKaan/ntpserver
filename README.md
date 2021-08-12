@@ -39,7 +39,6 @@ Also Client computer sets the Date/Time from NTP Server date/time.
           
           You Can See Your Ntp Servers 
           
-            pgreo ntpd
             ss -tulpn | grep ":123"
 
     * After That You need to enter your command and system will response.
