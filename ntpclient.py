@@ -1,34 +1,43 @@
 import os
 import socket
+import click
 
-host_address = input('Host address input:')
-port_address = input('Port address input:')
-serverAddress = (host_address, int(port_address))
-bufferSize = 1024
+@click.command()
+@click.option('--host', help='Your Host Address', default=None)
+@click.option('--port', help="Your Port Address", default=None)
 
-try:
-    UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+def client(host,port):
+    if host == None : host = input('Host address input:')
+    if port == None : port = input('Port address input:')
+    
+    serverAddress = (host, int(port))
+    bufferSize = 1024
 
-    while True:
-        clientMessage = input("Enter your command:")
-        if clientMessage == "exit":
-            break
+    try:
+        UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
-        bytesToSend = str.encode(clientMessage)
+        while True:
+            clientMessage = input("Enter your command:")
+            if clientMessage == "exit":
+                break
 
-        UDPServerSocket.sendto(bytesToSend, serverAddress)
+            bytesToSend = str.encode(clientMessage)
 
-        serverMessage = UDPServerSocket.recvfrom(bufferSize)
+            UDPServerSocket.sendto(bytesToSend, serverAddress)
 
-        msg = serverMessage[0].decode()
-        
-        print("Server response: " + msg)
+            serverMessage = UDPServerSocket.recvfrom(bufferSize)
 
-        if clientMessage == "time" and msg:
-            os.system('sudo timedatectl set-time '+ msg.split()[0]+ msg.split()[1])
-            print("System Date/Time Changed.")
+            msg = serverMessage[0].decode()
+            
+            print("Server response: " + msg)
 
-except Exception as e:
-    print(e)
+            if clientMessage == "time" and msg:
+                os.system('sudo timedatectl set-time '+ msg.split()[0]+ msg.split()[1])
+                print("System Date/Time Changed.")
 
+    except Exception as e:
+        print(e)
+
+if __name__ == '__main__':
+    client()
 
