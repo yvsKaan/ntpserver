@@ -54,7 +54,7 @@ class Client:
 @click.option('--port', help="Your Port Address", default=None)
 def cli(host, port):
     try:
-        ntplib.NTPClient().request(host= host, port= 123)
+        ntplib.NTPClient().request(host= host)
         client = Client(host, port)
         client.run()
     except Exception as e:
