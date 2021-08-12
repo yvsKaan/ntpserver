@@ -32,8 +32,10 @@ def client(host,port):
             print("Server response: " + msg)
 
             if clientMessage == "time" and msg:
-                os.system('sudo timedatectl set-time '+ msg.split()[0]+ msg.split()[1])
-                print("System Date/Time Changed.")
+                is_Change = input('Do you want to change the time with Server time? Y/N:')
+                if is_Change.lower() == 'y':
+                    os.system('sudo timedatectl set-time '+ msg.split()[0]+ msg.split()[1])
+                    print("System Date/Time Changed.")
 
     except Exception as e:
         print(e)
