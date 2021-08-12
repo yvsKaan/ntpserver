@@ -30,8 +30,9 @@ Client can connect the Server with Host and Port informations and get the time f
         python ntpclient.py
 
     * You need to enter host and port values.
-        ** You can use Localhost HOST : 127.0.0.1 PORT : 1234
-        ** Or you can change the server host and port address from server.go file 
+        
+        * You can use Localhost HOST : 127.0.0.1 PORT : 1234
+        * Or you can change the server host and port address from server.go file 
           
           You Can See Your Ntp Servers 
           
