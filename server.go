@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	host = "127.0.0.1"
+	host = "192.168.1.202"
 	port = ":1234"
 )
 
@@ -30,8 +30,8 @@ func handleClient(conn *net.UDPConn) {
 	requestTime := time.Now()
 	message := string(buffer[:n])
 	if message == "time" {
-		daytime := time.Now().String()
-		conn.WriteToUDP([]byte(daytime), addr)
+		daytime := time.Now()
+		conn.WriteToUDP([]byte(daytime.String()), addr)
 	} else {
 		conn.WriteToUDP([]byte("Failed, Try again."), addr)
 	}
