@@ -6,7 +6,7 @@ In this project, we created a NTP Project and use Golang(Go) for NTP Server side
 
 This Project Client connect to the Server with Host and Port informations and get date and time from Server.
 
-Also Client computer sets the Date/Time from NTP Server date/time.
+Also Client computer can sets the Date/Time from NTP Server date/time.
 
 ## Build-With
 
