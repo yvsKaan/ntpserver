@@ -2,8 +2,11 @@
 
 ## About 
 
-In this project, we created a NTP Server using with Golang(go) and Client using with Python.
-Client can connect the Server with Host and Port informations and get the time from NTP Server also client Date/Time is sets with NTP Server time.
+In this project, we created a NTP Project and use Golang(Go) for NTP Server side and Python for NTP Client side. 
+
+This Project Client connect to the Server with Host and Port informations and get date and time from Server.
+
+Also Client computer sets the Date/Time from NTP Server date/time.
 
 ## Build-With
 
