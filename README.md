@@ -41,6 +41,6 @@ Client can connect the Server with Host and Port informations and get the time f
     * After That You need to enter your command and system will response.
         ##### Command Examples
         
-        ** time => Get the Server Time and Date
+        * time => Get the Server Time and Date
         
-        ** exit => Close the NTP Client
+        * exit => Close the NTP Client
