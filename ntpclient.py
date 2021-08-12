@@ -2,6 +2,7 @@ import platform
 import socket
 import click
 import subprocess
+import ntplib
 
 class Client:    
     def __init__(self, host, port):
@@ -41,7 +42,7 @@ class Client:
                             subprocess.run(["sudo timedatectl set-time " + msg.split()[0]], shell= True) # For date
                             subprocess.run(["sudo timedatectl set-time " + msg.split()[1]], shell= True) # For time
                             print("System Date/Time Changed.")
-                        if is_Change.lowe() == 'y' and self.op_system != "Linux":
+                        if is_Change.lower() == 'y' and self.op_system != "Linux":
                             print("Sorry, only Linux Operation System can change time")
 
         except Exception as e:
@@ -52,8 +53,12 @@ class Client:
 @click.option('--host', help='Your Host Address', default=None)
 @click.option('--port', help="Your Port Address", default=None)
 def cli(host, port):
-    client = Client(host, port)
-    client.run()
+    try:
+        ntplib.NTPClient().request(host= host, port= 123)
+        client = Client(host, port)
+        client.run()
+    except Exception as e:
+        print(e)
 
 if __name__ == '__main__':
     cli()
