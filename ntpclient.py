@@ -35,12 +35,14 @@ class Client:
                 
                     print("Server response: " + msg)
 
-                    if msg and self.op_system == "Linux":
+                    if msg:
                         is_Change = input('Do you want to change the time with Server time? Y/N:')
-                        if is_Change.lower() == 'y':
+                        if is_Change.lower() == 'y' and self.op_system == "Linux":
                             subprocess.run(["sudo timedatectl set-time " + msg.split()[0]], shell= True) # For date
                             subprocess.run(["sudo timedatectl set-time " + msg.split()[1]], shell= True) # For time
                             print("System Date/Time Changed.")
+                        if is_Change.lowe() == 'y' and self.op_system != "Linux":
+                            print("Sorry, only Linux Operation System can change time")
 
         except Exception as e:
             print(e)
