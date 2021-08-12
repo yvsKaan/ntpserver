@@ -40,6 +40,10 @@ Also Client computer sets the Date/Time from NTP Server date/time.
           You Can See Your Ntp Servers 
           
             ss -tulpn | grep ":123"
+    
+    * Also you can enter your host and port value from console. 
+
+        python ntpclient.py --host HOST_ADDRESS --port PORT_ADDRESS 
 
     * After That You need to enter your command and system will response.
         ##### Command Examples
