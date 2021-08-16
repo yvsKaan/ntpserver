@@ -22,6 +22,10 @@ Also Client computer can sets the Date/Time from NTP Server date/time.
 
     git clone https://github.com/yvsKaan/ntpserver.git
 
+    or,
+
+    https://pypi.org/project/ntpclient/ and use pip install ntpclient
+
 ## Run 
 
 * You need to start server side first.
