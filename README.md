@@ -1,4 +1,4 @@
-![GOLANG](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white) ![PYTHON](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django) ![GOLANG](https://img.shields.io/badge/go-13.8-blue)
 
 # NTP Project
 
